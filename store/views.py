@@ -13,6 +13,7 @@ def index(request):
     context = {'latest_product_list': latest_product_list}
     return render(request, 'products/index.html', context)
 
+
 def cart(request):
     latest_product_list = Product.objects.order_by('-pub_date')[:5]
     context = {'latest_product_list': latest_product_list}
@@ -28,3 +29,12 @@ def addToCart(request, product_id):
 
 def addToFavorites(request, product_id):
     return HttpResponse("You're adding %s to your favorites product." % product_id)
+
+# static pages : contain all informations pages for the website 
+# we will rederict the user to our page ?.html
+def about(request):
+    return render(request,'about.html')
+def support(request):
+    return render(request,'support.html')
+def pricing(request):
+    return render(request,'pricing.html')
